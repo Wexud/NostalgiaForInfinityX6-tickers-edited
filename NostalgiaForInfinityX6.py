@@ -23,6 +23,7 @@ warnings.simplefilter(action="ignore", category=pd.errors.PerformanceWarning)
 #############################################################################################################
 ##                 NostalgiaForInfinityX6 by iterativ                                                      ##
 ##            https://github.com/iterativv/NostalgiaForInfinity                                            ##
+##    Modified by Wexud — edited tickers for grind and top coin mode                                       ##
 ##                                                                                                         ##
 ##    Strategy for Freqtrade https://github.com/freqtrade/freqtrade                                        ##
 ##                                                                                                         ##
@@ -69,7 +70,7 @@ class NostalgiaForInfinityX6(IStrategy):
   INTERFACE_VERSION = 3
 
   def version(self) -> str:
-    return "test"
+    return "v16.5.44"
 
   stoploss = -0.99
 
