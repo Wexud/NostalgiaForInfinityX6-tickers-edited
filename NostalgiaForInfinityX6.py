@@ -23,7 +23,7 @@ warnings.simplefilter(action="ignore", category=pd.errors.PerformanceWarning)
 #############################################################################################################
 ##                 NostalgiaForInfinityX6 by iterativ                                                      ##
 ##            https://github.com/iterativv/NostalgiaForInfinity                                            ##
-##    Modified by Wexud — edited tickers for grind and top coin mode                                       ##
+##    Modified by Wexud — edited tickers for grind and top coin mode ##
 ##                                                                                                         ##
 ##    Strategy for Freqtrade https://github.com/freqtrade/freqtrade                                        ##
 ##                                                                                                         ##
@@ -610,7 +610,7 @@ class NostalgiaForInfinityX6(IStrategy):
   profit_max_thresholds = [0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.05, 0.05]
 
   # Max allowed buy "slippage", how high to buy on the candle
-  max_slippage = 0.0085
+  max_slippage =  0.0085
 
   # BTC/ETH stakes
   btc_stakes = ["BTC", "ETH"]
