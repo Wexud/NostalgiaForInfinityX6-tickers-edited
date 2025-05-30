@@ -23,7 +23,7 @@ warnings.simplefilter(action="ignore", category=pd.errors.PerformanceWarning)
 #############################################################################################################
 ##                 NostalgiaForInfinityX6 by iterativ                                                      ##
 ##            https://github.com/iterativv/NostalgiaForInfinity                                            ##
-##    Modified by Wexud — edited tickers for grind and top coin mode             ##
+##    Modified by Wexud — edited tickers for grind and top coin mode                                     ##
 ##                                                                                                         ##
 ##    Strategy for Freqtrade https://github.com/freqtrade/freqtrade                                        ##
 ##                                                                                                         ##
