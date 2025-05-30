@@ -23,7 +23,7 @@ warnings.simplefilter(action="ignore", category=pd.errors.PerformanceWarning)
 #############################################################################################################
 ##                 NostalgiaForInfinityX6 by iterativ                                                      ##
 ##            https://github.com/iterativv/NostalgiaForInfinity                                            ##
-##    Modified by Wexud — edited tickers for grind and top coin mode                                     ##
+##            Modified by Wexud — edited tickers for grind and top coin mode                                            ##
 ##                                                                                                         ##
 ##    Strategy for Freqtrade https://github.com/freqtrade/freqtrade                                        ##
 ##                                                                                                         ##
@@ -482,41 +482,38 @@ class NostalgiaForInfinityX6(IStrategy):
   grind_mode_first_entry_stop_threshold_futures = -0.20
   grind_mode_max_slots = 1
   grind_mode_coins = [
-    "POL",
     "ADA",
-    "ARB",
-    "DOT",
-    "XLM",
     "ALGO",
-    "ETH",
-    "RENDER",
-    "XMR",
-    "AVAX",
-    "NEAR",
-    "DOGE",
-    "BCH",
-    "ETC",
-    "KAS",
-    "HBAR",
-    "SUI",
-    "TON",
-    "XRP",
-    "UNI",
-    "LTC",
-    "FIL",
-    "ATOM",
-    "GRT",
-    "LINK",
-    "VET",
-    "THETA",
-    "EOS",
     "APT",
-    "OP",
+    "ARB",
+    "ATOM",
+    "AVAX",
+    "BCH",
+    "DOGE",
+    "DOT",
+    "EOS",
+    "ETC",
+    "ETH",
+    "FIL",
+    "GRT",
+    "HBAR",
     "ICP",
+    "KAS",
+    "LINK",
+    "LTC",
+    "NEAR",
+    "OP",
+    "POL",
     "QNT",
-    "ZRO",
-    "EIGEN",
-    "BNB",
+    "RENDER",
+    "SUI",
+    "THETA",
+    "TON",
+    "UNI",
+    "VET",
+    "XLM",
+    "XMR",
+    "XRP",
   ]
 
   # Top coins mode coins
