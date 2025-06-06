@@ -483,6 +483,7 @@ class NostalgiaForInfinityX6(IStrategy):
   grind_mode_max_slots = 1
   grind_mode_coins = [
     "ADA",
+    "A",
     "ALGO",
     "APT",
     "ARB",
@@ -519,6 +520,7 @@ class NostalgiaForInfinityX6(IStrategy):
   # Top coins mode coins
   top_coins_mode_coins = [
     "BTC",
+    "A",
     "ETH",
     "XRP",
     "BNB",
