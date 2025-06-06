@@ -609,7 +609,7 @@ class NostalgiaForInfinityX6(IStrategy):
   profit_max_thresholds = [0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.05, 0.05]
 
   # Max allowed buy "slippage", how high to buy on the candle
-  max_slippage = 0.01
+  max_slippage = 0.012
 
   # BTC/ETH stakes
   btc_stakes = ["BTC", "ETH"]
