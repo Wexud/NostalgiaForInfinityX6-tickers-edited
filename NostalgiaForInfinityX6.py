@@ -70,7 +70,7 @@ class NostalgiaForInfinityX6(IStrategy):
   INTERFACE_VERSION = 3
 
   def version(self) -> str:
-    return "v16.5.83"
+    return "v16.5.84"
 
   stoploss = -0.99
 
@@ -3868,8 +3868,8 @@ class NostalgiaForInfinityX6(IStrategy):
     if exit_reason != "force_exit":
       if self._should_hold_trade(trade, rate, exit_reason):
         return False
-      if exit_reason in ["stop_loss", "trailing_stop_loss", "liquidation"]:
-        log.info(f"[{current_time}] Cancelling {exit_reason} exit for {pair}")
+      if exit_reason in ["stop_loss", "trailing_stop_loss"]:
+        # log.info(f"[{current_time}] Cancelling {exit_reason} exit for {pair}")
         return False
       if self.exit_profit_only:
         profit = 0.0
