@@ -70,7 +70,7 @@ class NostalgiaForInfinityX6(IStrategy):
   INTERFACE_VERSION = 3
 
   def version(self) -> str:
-    return "v16.5.129"
+    return "v16.5.131"
 
   stoploss = -0.99
 
@@ -4599,6 +4599,10 @@ class NostalgiaForInfinityX6(IStrategy):
             | (df["close"] > (df["high_max_12_4h"] * 0.50))
             | (df["close"] < (df["low_min_12_4h"] * 1.25))
           )
+          # 1d top wick, 4h down move, 4h high
+          long_entry_logic.append(
+            (df["top_wick_pct_1d"] < 10.0) | (df["RSI_3_4h"] > 40.0) | (df["AROONU_14_4h"] < 80.0)
+          )
           # pump, drop but not yet near the previous lows
           long_entry_logic.append(
             (((df["high_max_6_1d"] - df["low_min_6_1d"]) / df["low_min_6_1d"]) < 6.0)
@@ -7552,6 +7556,10 @@ class NostalgiaForInfinityX6(IStrategy):
           # 1d top wick, 1h down move, 4h still high
           long_entry_logic.append(
             (df["top_wick_pct_1d"] < 10.0) | (df["RSI_3_1h"] > 25.0) | (df["AROONU_14_4h"] < 50.0)
+          )
+          # 1d top wick, 4h down move, 4h high
+          long_entry_logic.append(
+            (df["top_wick_pct_1d"] < 10.0) | (df["RSI_3_4h"] > 60.0) | (df["AROONU_14_4h"] < 80.0)
           )
           # pump, drop but not yet near the previous lows
           long_entry_logic.append(
