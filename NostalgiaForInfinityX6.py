@@ -70,7 +70,7 @@ class NostalgiaForInfinityX6(IStrategy):
   INTERFACE_VERSION = 3
 
   def version(self) -> str:
-    return "v16.5.238"
+    return "v16.5.240"
 
   stoploss = -0.99
 
@@ -3405,6 +3405,14 @@ class NostalgiaForInfinityX6(IStrategy):
         | (df["AROONU_14_4h"] < 60.0)
         | (df["ROC_9_1d"] < 80.0)
       )
+      # 15m & 1h down move, 15m & 4h high, 4h overbought
+      & (
+        (df["RSI_3_15m"] > 10.0)
+        | (df["RSI_3_1h"] > 65.0)
+        | (df["AROONU_14_15m"] < 80.0)
+        | (df["AROONU_14_4h"] < 85.0)
+        | (df["ROC_9_4h"] < 100.0)
+      )
       # 5m & 15m & 1h & 4h down move, 15m downtrend, 4h high, 1d overbought
       & (
         (df["RSI_3_1h"] > 25.0)
@@ -3430,6 +3438,16 @@ class NostalgiaForInfinityX6(IStrategy):
         | (df["RSI_3_1h"] > 55.0)
         | (df["RSI_3_4h"] > 55.0)
         | (df["AROONU_14_1h"] < 50.0)
+        | (df["AROONU_14_4h"] < 50.0)
+      )
+      # 1d top wick, 15m & 1h & 4h down move, 15m & 1h downtrend, 4h still high
+      & (
+        (df["top_wick_pct_1d"] < 25.0)
+        | (df["RSI_3_15m"] > 10.0)
+        | (df["RSI_3_1h"] > 30.0)
+        | (df["RSI_3_4h"] > 50.0)
+        | (df["CMF_20_15m"] > -0.25)
+        | (df["CMF_20_1h"] > -0.25)
         | (df["AROONU_14_4h"] < 50.0)
       )
     )
@@ -6265,6 +6283,7 @@ class NostalgiaForInfinityX6(IStrategy):
         if long_entry_condition_index == 41:
           # Protections
           long_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+          long_entry_logic.append(df["protections_long_global"] == True)
 
           # big drop in the last hour, 5m down move
           long_entry_logic.append((df["close"] > (df["close_max_12"] * 0.75)) | (df["RSI_3"] > 3.0))
@@ -6536,6 +6555,7 @@ class NostalgiaForInfinityX6(IStrategy):
         if long_entry_condition_index == 42:
           # Protections
           long_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+          long_entry_logic.append(df["protections_long_global"] == True)
 
           long_entry_logic.append(df["RSI_3_1h"] <= 95.0)
           long_entry_logic.append(df["RSI_3_4h"] <= 80.0)
@@ -6790,6 +6810,7 @@ class NostalgiaForInfinityX6(IStrategy):
         if long_entry_condition_index == 43:
           # Protections
           long_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+          long_entry_logic.append(df["protections_long_global"] == True)
 
           long_entry_logic.append(df["RSI_14_1h"] < 80.0)
           long_entry_logic.append(df["RSI_14_4h"] < 80.0)
@@ -7134,6 +7155,7 @@ class NostalgiaForInfinityX6(IStrategy):
         if long_entry_condition_index == 45:
           # Protections
           long_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+          long_entry_logic.append(df["protections_long_global"] == True)
 
           # 5m & 15m down move, 4h still high
           long_entry_logic.append(
@@ -7339,6 +7361,7 @@ class NostalgiaForInfinityX6(IStrategy):
         if long_entry_condition_index == 46:
           # Protections
           long_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+          long_entry_logic.append(df["protections_long_global"] == True)
 
           # 5m & 1h down move
           long_entry_logic.append((df["RSI_3_15m"] > 3.0) | (df["RSI_3_1h"] > 5.0))
@@ -7526,6 +7549,7 @@ class NostalgiaForInfinityX6(IStrategy):
         if long_entry_condition_index == 61:
           # Protections
           long_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+          long_entry_logic.append(df["protections_long_global"] == True)
 
           # 5m & 15m down move, 4h high
           long_entry_logic.append((df["RSI_3"] > 10.0) | (df["RSI_3_15m"] > 20.0) | (df["AROONU_14_4h"] < 85.0))
@@ -7682,6 +7706,7 @@ class NostalgiaForInfinityX6(IStrategy):
         if long_entry_condition_index == 62:
           # Protections
           long_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+          long_entry_logic.append(df["protections_long_global"] == True)
 
           # 5m & 1h down move, 4h still high
           long_entry_logic.append(
