@@ -70,7 +70,7 @@ class NostalgiaForInfinityX6(IStrategy):
   INTERFACE_VERSION = 3
 
   def version(self) -> str:
-    return "v16.5.245"
+    return "v16.5.246"
 
   stoploss = -0.99
 
@@ -3423,6 +3423,14 @@ class NostalgiaForInfinityX6(IStrategy):
         | (df["AROONU_14_4h"] < 85.0)
         | (df["ROC_9_4h"] < 100.0)
       )
+      # 15m down move, 15m still not low enough, 1h & 4h high, 1d overbought
+      & (
+        (df["RSI_3_15m"] > 15.0)
+        | (df["AROONU_14_15m"] < 30.0)
+        | (df["AROONU_14_1h"] < 85.0)
+        | (df["AROONU_14_4h"] < 100.0)
+        | (df["ROC_9_1d"] < 250.0)
+      )
       # 15m & 1h down move, 15m still high, 1h & dh high, 1d overbought
       & (
         (df["RSI_3_15m"] > 15.0)
@@ -5620,6 +5628,7 @@ class NostalgiaForInfinityX6(IStrategy):
         if long_entry_condition_index == 6:
           # Protections
           long_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+          long_entry_logic.append(df["protections_long_global"] == True)
 
           # big drop in the last hour
           long_entry_logic.append(df["close"] > (df["close_max_12"] * 0.50))
@@ -6230,6 +6239,7 @@ class NostalgiaForInfinityX6(IStrategy):
         if long_entry_condition_index == 21:
           # Protections
           long_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+          long_entry_logic.append(df["protections_long_global"] == True)
 
           # 5m down move, 15m still not low enough, 4h high
           long_entry_logic.append(
