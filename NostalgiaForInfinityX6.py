@@ -70,7 +70,7 @@ class NostalgiaForInfinityX6(IStrategy):
   INTERFACE_VERSION = 3
 
   def version(self) -> str:
-    return "v16.5.254"
+    return "v16.5.255"
 
   stoploss = -0.99
 
@@ -3509,6 +3509,13 @@ class NostalgiaForInfinityX6(IStrategy):
         | (df["CMF_20_1h"] > -0.3)
         | (df["CMF_20_4h"] > -0.3)
         | (df["AROONU_14_1h"] < 50.0)
+      )
+      # 1d down move, 15m high, 1h & 4h downtrend
+      & (
+        (df["RSI_3_1d"] > 5.0)
+        | (df["STOCHRSIk_14_14_3_3_15m"] < 70.0)
+        | (df["ROC_9_1h"] > -60.0)
+        | (df["ROC_9_4h"] > -60.0)
       )
       # 4h green with top wick, 15m & 1h down move, 1h still high, 4h high
       & (
@@ -10201,6 +10208,7 @@ class NostalgiaForInfinityX6(IStrategy):
         if short_entry_condition_index == 501:
           # Protections
           short_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+          short_entry_logic.append(df["protections_short_global"] == True)
           short_entry_logic.append(df["global_protections_short_pump"] == True)
           short_entry_logic.append(df["global_protections_short_dump"] == True)
 
@@ -10423,6 +10431,7 @@ class NostalgiaForInfinityX6(IStrategy):
         if short_entry_condition_index == 502:
           # Protections
           short_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+          short_entry_logic.append(df["protections_short_global"] == True)
 
           # 5m & 4h up move
           short_entry_logic.append((df["RSI_3"] < 97.0) | (df["RSI_3_4h"] < 95.0))
@@ -11046,6 +11055,7 @@ class NostalgiaForInfinityX6(IStrategy):
         if short_entry_condition_index == 542:
           # Protections
           short_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+          short_entry_logic.append(df["protections_short_global"] == True)
 
           # 5m & 15m up move, 15m stil low
           short_entry_logic.append((df["RSI_3"] < 90.0) | (df["RSI_3_15m"] < 80.0) | (df["AROONU_14_15m"] > 60.0))
