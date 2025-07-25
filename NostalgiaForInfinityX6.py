@@ -70,7 +70,7 @@ class NostalgiaForInfinityX6(IStrategy):
   INTERFACE_VERSION = 3
 
   def version(self) -> str:
-    return "v16.5.264"
+    return "v16.5.265"
 
   stoploss = -0.99
 
@@ -3671,6 +3671,17 @@ class NostalgiaForInfinityX6(IStrategy):
         | (df["AROONU_14_15m"] < 25.0)
         | (df["AROONU_14_4h"] < 70.0)
         | (df["ROC_9_1d"] < 40.0)
+      )
+      # 1d green with top wick, 1h down move, 1h still high, 4h high & overbought, 1d overbought
+      & (
+        (df["change_pct_1d"] < 30.0)
+        | (df["top_wick_pct_1d"] < 20.0)
+        | (df["RSI_3_1h"] > 50.0)
+        | (df["RSI_14_1h"] < 40.0)
+        | (df["RSI_14_4h"] < 60.0)
+        | (df["AROONU_14_4h"] < 70.0)
+        | (df["ROC_9_4h"] < 40.0)
+        | (df["ROC_9_1d"] < 50.0)
       )
       # 1d top wick, 1h & 4h down move, 15m downtrend, 4h still high, 1d overbought
       & (
@@ -8217,6 +8228,7 @@ class NostalgiaForInfinityX6(IStrategy):
         if long_entry_condition_index == 101:
           # Protections
           long_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+          long_entry_logic.append(df["protections_long_global"] == True)
 
           long_entry_logic.append(df["RSI_14_1h"] < 80.0)
           long_entry_logic.append(df["RSI_14_4h"] < 80.0)
@@ -8540,6 +8552,7 @@ class NostalgiaForInfinityX6(IStrategy):
         if long_entry_condition_index == 102:
           # Protections
           long_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+          long_entry_logic.append(df["protections_long_global"] == True)
 
           long_entry_logic.append(df["RSI_3"] < 46.0)
           long_entry_logic.append(df["RSI_3_15m"] > 5.0)
@@ -8920,6 +8933,7 @@ class NostalgiaForInfinityX6(IStrategy):
         if long_entry_condition_index == 103:
           # Protections
           long_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+          long_entry_logic.append(df["protections_long_global"] == True)
 
           long_entry_logic.append(df["ROC_2"] > -0.0)
           # 15m down move, 4h high, 1d overbought
@@ -9097,6 +9111,7 @@ class NostalgiaForInfinityX6(IStrategy):
         if long_entry_condition_index == 104:
           # Protections
           long_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+          long_entry_logic.append(df["protections_long_global"] == True)
 
           # 15m & 4h & 1d down move
           long_entry_logic.append((df["RSI_3_15m"] > 3.0) | (df["RSI_3_4h"] > 10.0) | (df["RSI_3_1d"] > 15.0))
@@ -9270,6 +9285,7 @@ class NostalgiaForInfinityX6(IStrategy):
         if long_entry_condition_index == 120:
           # Protections
           long_entry_logic.append(num_open_long_grind_mode < self.grind_mode_max_slots)
+          long_entry_logic.append(df["protections_long_global"] == True)
           long_entry_logic.append(is_pair_long_grind_mode)
           long_entry_logic.append(df["RSI_3"] <= 50.0)
           long_entry_logic.append(df["RSI_3_15m"] >= 20.0)
@@ -9290,6 +9306,7 @@ class NostalgiaForInfinityX6(IStrategy):
           # Protections
           long_entry_logic.append(is_pair_long_top_coins_mode)
           long_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+          long_entry_logic.append(df["protections_long_global"] == True)
 
           long_entry_logic.append(df["RSI_14_1h"] < 80.0)
           long_entry_logic.append(df["RSI_14_4h"] < 80.0)
@@ -9402,6 +9419,7 @@ class NostalgiaForInfinityX6(IStrategy):
           # Protections
           long_entry_logic.append(is_pair_long_top_coins_mode)
           long_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+          long_entry_logic.append(df["protections_long_global"] == True)
 
           # 5m & 15m down move, 4h high
           long_entry_logic.append(
@@ -9572,6 +9590,7 @@ class NostalgiaForInfinityX6(IStrategy):
           # Protections
           long_entry_logic.append(is_pair_long_top_coins_mode)
           long_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+          long_entry_logic.append(df["protections_long_global"] == True)
 
           long_entry_logic.append(df["RSI_14_1h"] < 80.0)
           long_entry_logic.append(df["RSI_14_4h"] < 80.0)
@@ -9635,6 +9654,7 @@ class NostalgiaForInfinityX6(IStrategy):
           # Protections
           long_entry_logic.append(is_pair_long_top_coins_mode)
           long_entry_logic.append(df["num_empty_288"] <= allowed_empty_candles_288)
+          long_entry_logic.append(df["protections_long_global"] == True)
 
           long_entry_logic.append(df["RSI_14_1h"] < 80.0)
           long_entry_logic.append(df["RSI_14_4h"] < 80.0)
