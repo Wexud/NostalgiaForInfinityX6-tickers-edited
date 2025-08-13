@@ -70,7 +70,7 @@ class NostalgiaForInfinityX6(IStrategy):
   INTERFACE_VERSION = 3
 
   def version(self) -> str:
-    return "v16.6.32"
+    return "v16.6.33"
 
   stoploss = -0.99
 
@@ -399,8 +399,8 @@ class NostalgiaForInfinityX6(IStrategy):
   grinding_v2_grind_1_profit_threshold_spot = 0.028
   grinding_v2_grind_1_profit_threshold_futures = 0.028
   grinding_v2_grind_1_use_derisk = True
-  grinding_v2_grind_1_derisk_spot = -0.05
-  grinding_v2_grind_1_derisk_futures = -0.05
+  grinding_v2_grind_1_derisk_spot = -0.10
+  grinding_v2_grind_1_derisk_futures = -0.10
 
   grinding_v2_grind_2_enable = True
   grinding_v2_grind_2_stakes_spot = [0.10, 0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 0.18]
@@ -410,8 +410,8 @@ class NostalgiaForInfinityX6(IStrategy):
   grinding_v2_grind_2_profit_threshold_spot = 0.05
   grinding_v2_grind_2_profit_threshold_futures = 0.05
   grinding_v2_grind_2_use_derisk = True
-  grinding_v2_grind_2_derisk_spot = -0.05
-  grinding_v2_grind_2_derisk_futures = -0.05
+  grinding_v2_grind_2_derisk_spot = -0.10
+  grinding_v2_grind_2_derisk_futures = -0.10
 
   grinding_v2_grind_3_enable = True
   grinding_v2_grind_3_stakes_spot = [0.10, 0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 0.18]
@@ -421,8 +421,8 @@ class NostalgiaForInfinityX6(IStrategy):
   grinding_v2_grind_3_profit_threshold_spot = 0.05
   grinding_v2_grind_3_profit_threshold_futures = 0.05
   grinding_v2_grind_3_use_derisk = True
-  grinding_v2_grind_3_derisk_spot = -0.05
-  grinding_v2_grind_3_derisk_futures = -0.05
+  grinding_v2_grind_3_derisk_spot = -0.10
+  grinding_v2_grind_3_derisk_futures = -0.10
 
   grinding_v2_grind_4_enable = True
   grinding_v2_grind_4_stakes_spot = [0.05, 0.06, 0.07, 0.08, 0.09, 0.10, 0.11]
@@ -432,8 +432,8 @@ class NostalgiaForInfinityX6(IStrategy):
   grinding_v2_grind_4_profit_threshold_spot = 0.10
   grinding_v2_grind_4_profit_threshold_futures = 0.10
   grinding_v2_grind_4_use_derisk = True
-  grinding_v2_grind_4_derisk_spot = -0.05
-  grinding_v2_grind_4_derisk_futures = -0.05
+  grinding_v2_grind_4_derisk_spot = -0.10
+  grinding_v2_grind_4_derisk_futures = -0.10
 
   grinding_v2_grind_5_enable = True
   grinding_v2_grind_5_stakes_spot = [0.05, 0.06, 0.07, 0.08, 0.09, 0.10, 0.11]
@@ -443,8 +443,8 @@ class NostalgiaForInfinityX6(IStrategy):
   grinding_v2_grind_5_profit_threshold_spot = 0.10
   grinding_v2_grind_5_profit_threshold_futures = 0.10
   grinding_v2_grind_5_use_derisk = True
-  grinding_v2_grind_5_derisk_spot = -0.05
-  grinding_v2_grind_5_derisk_futures = -0.05
+  grinding_v2_grind_5_derisk_spot = -0.10
+  grinding_v2_grind_5_derisk_futures = -0.10
 
   grinding_v2_buyback_1_enable = True
   grinding_v2_buyback_1_stake_spot = 0.20
@@ -454,8 +454,8 @@ class NostalgiaForInfinityX6(IStrategy):
   grinding_v2_buyback_1_profit_threshold_spot = 0.05
   grinding_v2_buyback_1_profit_threshold_futures = 0.05
   grinding_v2_buyback_1_use_derisk = True
-  grinding_v2_buyback_1_derisk_spot = -0.05
-  grinding_v2_buyback_1_derisk_futures = -0.05
+  grinding_v2_buyback_1_derisk_spot = -0.10
+  grinding_v2_buyback_1_derisk_futures = -0.10
 
   grinding_v2_buyback_2_enable = True
   grinding_v2_buyback_2_stake_spot = 0.20
@@ -465,8 +465,8 @@ class NostalgiaForInfinityX6(IStrategy):
   grinding_v2_buyback_2_profit_threshold_spot = 0.05
   grinding_v2_buyback_2_profit_threshold_futures = 0.05
   grinding_v2_buyback_2_use_derisk = True
-  grinding_v2_buyback_2_derisk_spot = -0.05
-  grinding_v2_buyback_2_derisk_futures = -0.05
+  grinding_v2_buyback_2_derisk_spot = -0.10
+  grinding_v2_buyback_2_derisk_futures = -0.10
 
   grinding_v2_buyback_3_enable = True
   grinding_v2_buyback_3_stake_spot = 0.20
@@ -476,8 +476,8 @@ class NostalgiaForInfinityX6(IStrategy):
   grinding_v2_buyback_3_profit_threshold_spot = 0.05
   grinding_v2_buyback_3_profit_threshold_futures = 0.05
   grinding_v2_buyback_3_use_derisk = True
-  grinding_v2_buyback_3_derisk_spot = -0.05
-  grinding_v2_buyback_3_derisk_futures = -0.05
+  grinding_v2_buyback_3_derisk_spot = -0.10
+  grinding_v2_buyback_3_derisk_futures = -0.10
 
   # Rebuy mode
   rebuy_mode_stake_multiplier = 0.35
