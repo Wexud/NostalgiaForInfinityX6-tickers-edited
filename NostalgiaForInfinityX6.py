@@ -70,7 +70,7 @@ class NostalgiaForInfinityX6(IStrategy):
   INTERFACE_VERSION = 3
 
   def version(self) -> str:
-    return "v16.6.181"
+    return "v16.6.183"
 
   stoploss = -0.99
 
@@ -392,9 +392,9 @@ class NostalgiaForInfinityX6(IStrategy):
   grinding_v2_derisk_global_futures = -0.30
 
   grinding_v2_grind_1_enable = True
-  grinding_v2_grind_1_stakes_spot = [0.25, 0.26, 0.27, 0.28]
+  grinding_v2_grind_1_stakes_spot = [0.20, 0.21, 0.22, 0.23]
   grinding_v2_grind_1_thresholds_spot = [-0.12, -0.14, -0.16, -0.18]
-  grinding_v2_grind_1_stakes_futures = [0.25, 0.26, 0.27, 0.28]
+  grinding_v2_grind_1_stakes_futures = [0.20, 0.21, 0.22, 0.23]
   grinding_v2_grind_1_thresholds_futures = [-0.12, -0.14, -0.16, -0.18]
   grinding_v2_grind_1_profit_threshold_spot = 0.028
   grinding_v2_grind_1_profit_threshold_futures = 0.028
@@ -5103,6 +5103,18 @@ class NostalgiaForInfinityX6(IStrategy):
         | (df["STOCHRSIk_14_14_3_3_1h"] < 50.0)
         | (df["STOCHRSIk_14_14_3_3_4h"] < 80.0)
         | (df["ROC_9_4h"] < 20.0)
+      )
+      # 15m down move, 15m & 1h & 4h still high, 15m & 1h downtrend, 4h high, 15m & 1h still high
+      & (
+        (df["RSI_3_15m"] > 25.0)
+        | (df["RSI_14_15m"] < 40.0)
+        | (df["RSI_14_1h"] < 50.0)
+        | (df["RSI_14_4h"] < 50.0)
+        | (df["CMF_20_15m"] > -0.20)
+        | (df["CMF_20_1h"] > -0.10)
+        | (df["AROONU_14_4h"] < 70.0)
+        | (df["STOCHRSIk_14_14_3_3_15m"] < 40.0)
+        | (df["STOCHRSIk_14_14_3_3_1h"] < 40.0)
       )
       # 15m down move, 15m still high, 1h >& 4h high, 15m & 1h & 4h high, 4h overbought
       & (
