@@ -70,7 +70,7 @@ class NostalgiaForInfinityX6(IStrategy):
   INTERFACE_VERSION = 3
 
   def version(self) -> str:
-    return "v16.6.180"
+    return "v16.6.181"
 
   stoploss = -0.99
 
@@ -447,8 +447,8 @@ class NostalgiaForInfinityX6(IStrategy):
   grinding_v2_grind_5_derisk_futures = -0.10
 
   grinding_v2_buyback_1_enable = True
-  grinding_v2_buyback_1_stake_spot = 0.20
-  grinding_v2_buyback_1_stake_futures = 0.20
+  grinding_v2_buyback_1_stake_spot = 0.10
+  grinding_v2_buyback_1_stake_futures = 0.10
   grinding_v2_buyback_1_distance_ratio_spot = -0.06
   grinding_v2_buyback_1_distance_ratio_futures = -0.06
   grinding_v2_buyback_1_profit_threshold_spot = 0.05
@@ -458,8 +458,8 @@ class NostalgiaForInfinityX6(IStrategy):
   grinding_v2_buyback_1_derisk_futures = -0.10
 
   grinding_v2_buyback_2_enable = True
-  grinding_v2_buyback_2_stake_spot = 0.20
-  grinding_v2_buyback_2_stake_futures = 0.20
+  grinding_v2_buyback_2_stake_spot = 0.10
+  grinding_v2_buyback_2_stake_futures = 0.10
   grinding_v2_buyback_2_distance_ratio_spot = -0.12
   grinding_v2_buyback_2_distance_ratio_futures = -0.12
   grinding_v2_buyback_2_profit_threshold_spot = 0.05
@@ -469,8 +469,8 @@ class NostalgiaForInfinityX6(IStrategy):
   grinding_v2_buyback_2_derisk_futures = -0.10
 
   grinding_v2_buyback_3_enable = True
-  grinding_v2_buyback_3_stake_spot = 0.20
-  grinding_v2_buyback_3_stake_futures = 0.20
+  grinding_v2_buyback_3_stake_spot = 0.10
+  grinding_v2_buyback_3_stake_futures = 0.10
   grinding_v2_buyback_3_distance_ratio_spot = -0.16
   grinding_v2_buyback_3_distance_ratio_futures = -0.16
   grinding_v2_buyback_3_profit_threshold_spot = 0.05
@@ -4729,6 +4729,18 @@ class NostalgiaForInfinityX6(IStrategy):
         | (df["AROONU_14_15m"] < 70.0)
         | (df["AROONU_14_1h"] < 50.0)
         | (df["AROONU_14_4h"] < 40.0)
+      )
+      # 15m & 1h & 4h down move, 15m still not low enough, 1h & 4h still high, 15m & 1h & 4h high
+      & (
+        (df["RSI_3_15m"] > 25.0)
+        | (df["RSI_3_1h"] > 25.0)
+        | (df["RSI_3_4h"] > 60.0)
+        | (df["RSI_14_15m"] < 30.0)
+        | (df["RSI_14_1h"] < 40.0)
+        | (df["RSI_14_4h"] < 50.0)
+        | (df["AROONU_14_15m"] < 70.0)
+        | (df["AROONU_14_1h"] < 85.0)
+        | (df["AROONU_14_4h"] < 85.0)
       )
       # 15m & 1h down move, 15m still not low enough, 1h stil high, 4h high & overbought
       & (
