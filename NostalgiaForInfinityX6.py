@@ -23,7 +23,7 @@ warnings.simplefilter(action="ignore", category=pd.errors.PerformanceWarning)
 #############################################################################################################
 ##                 NostalgiaForInfinityX6 by iterativ                                                      ##
 ##            https://github.com/iterativv/NostalgiaForInfinity                                            ##
-##    Modified by Wexud — edited tickers for grind and top coin mode                                       ##
+##    Modified by Wexud edited tickers for grind and top coin mode                                         ##
 ##                                                                                                         ##
 ##    Strategy for Freqtrade https://github.com/freqtrade/freqtrade                                        ##
 ##                                                                                                         ##
@@ -32,7 +32,7 @@ warnings.simplefilter(action="ignore", category=pd.errors.PerformanceWarning)
 ##                                                                                                         ##
 ##   For optimal performance, suggested to use between 6 and 12 open trades, with unlimited stake.         ##
 ##   A pairlist with 40 to 80 pairs. Volume pairlist works well.                                           ##
-##   Prefer stable coin (USDT, USDC etc) pairs, instead of BTC or ETH pairs.                              ##
+##   Prefer stable coin (USDT, USDC etc) pairs, instead of BTC or ETH pairs.                               ##
 ##   Highly recommended to blacklist leveraged tokens (*BULL, *BEAR, *UP, *DOWN etc).                      ##
 ##   Ensure that you don't override any variables in you config.json. Especially                           ##
 ##   the timeframe (must be 5m).                                                                           ##
@@ -514,7 +514,6 @@ class NostalgiaForInfinityX6(IStrategy):
     "BCH",
     "DOGE",
     "DOT",
-    "A",
     "ETC",
     "ETH",
     "FIL",
@@ -573,7 +572,6 @@ class NostalgiaForInfinityX6(IStrategy):
     "ENA",
     "ALGO",
     "ARB",
-    "A",
     "OP",
     "MKR",
     "FET",
