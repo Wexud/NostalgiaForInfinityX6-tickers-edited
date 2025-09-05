@@ -33755,7 +33755,12 @@ class NostalgiaForInfinityX6(IStrategy):
       if buy_amount > max_stake:
         return None
       self.dp.send_msg(
-        f"Grinding entry (grind_1_entry) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
+        f"✅ ​**Grinding entry:** `(grind_1_entry)`\n"
+        f"🪙​ **Pair:** `{trade.pair}`\n"
+        f"〽️​ **Rate:** `{current_rate}`\n"
+        f"💰 **Stake amount:** `{buy_amount}`\n"
+        f"💵​ **Profit (stake):** `{profit_stake}`\n"
+        f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`"
       )
       log.info(
         f"Grinding entry (grind_1_entry) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
@@ -33777,7 +33782,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (grind_1_exit) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(grind_1_exit)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_1_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (grind_1_exit) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -33851,7 +33864,12 @@ class NostalgiaForInfinityX6(IStrategy):
       if buy_amount > max_stake:
         return None
       self.dp.send_msg(
-        f"Grinding entry (grind_2_entry) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
+        f"✅ ​**Grinding entry:** `(grind_2_entry)`\n"
+        f"🪙​ **Pair:** `{trade.pair}`\n"
+        f"〽️​ **Rate:** `{current_rate}`\n"
+        f"💰 **Stake amount:** `{buy_amount}`\n"
+        f"💵​ **Profit (stake):** `{profit_stake}`\n"
+        f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`"
       )
       log.info(
         f"Grinding entry (grind_2_entry) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
@@ -33873,7 +33891,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (grind_2_exit) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_2_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(grind_2_exit)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_2_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (grind_2_exit) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_2_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -33947,7 +33973,12 @@ class NostalgiaForInfinityX6(IStrategy):
       if buy_amount > max_stake:
         return None
       self.dp.send_msg(
-        f"Grinding entry (grind_3_entry) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
+        f"✅ ​**Grinding entry:** `(grind_3_entry)`\n"
+        f"🪙​ **Pair:** `{trade.pair}`\n"
+        f"〽️​ **Rate:** `{current_rate}`\n"
+        f"💰 **Stake amount:** `{buy_amount}`\n"
+        f"💵​ **Profit (stake):** `{profit_stake}`\n"
+        f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`"
       )
       log.info(
         f"Grinding entry (grind_3_entry) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
@@ -33969,7 +34000,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (grind_3_exit) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_3_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(grind_3_exit)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_3_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (grind_3_exit) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_3_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -34070,7 +34109,12 @@ class NostalgiaForInfinityX6(IStrategy):
       if buy_amount > max_stake:
         return None
       self.dp.send_msg(
-        f"Grinding entry (grind_4_entry) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
+        f"✅ ​**Grinding entry:** `(grind_4_entry)`\n"
+        f"🪙​ **Pair:** `{trade.pair}`\n"
+        f"〽️​ **Rate:** `{current_rate}`\n"
+        f"💰 **Stake amount:** `{buy_amount}`\n"
+        f"💵​ **Profit (stake):** `{profit_stake}`\n"
+        f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`"
       )
       log.info(
         f"Grinding entry (grind_4_entry) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
@@ -34092,7 +34136,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (grind_4_exit) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_4_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(grind_4_exit)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_4_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (grind_4_exit) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_4_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -34181,7 +34233,12 @@ class NostalgiaForInfinityX6(IStrategy):
       if buy_amount > max_stake:
         return None
       self.dp.send_msg(
-        f"Grinding entry (grind_5_entry) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
+        f"✅ ​**Grinding entry:** `(grind_5_entry)`\n"
+        f"🪙​ **Pair:** `{trade.pair}`\n"
+        f"〽️​ **Rate:** `{current_rate}`\n"
+        f"💰 **Stake amount:** `{buy_amount}`\n"
+        f"💵​ **Profit (stake):** `{profit_stake}`\n"
+        f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`"
       )
       log.info(
         f"Grinding entry (grind_5_entry) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
@@ -34203,7 +34260,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (grind_5_exit) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_5_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(grind_5_exit)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_5_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (grind_5_exit) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_5_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -34288,7 +34353,12 @@ class NostalgiaForInfinityX6(IStrategy):
       if buy_amount > max_stake:
         return None
       self.dp.send_msg(
-        f"Buyback entry (buyback_1_entry) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
+        f"✅ ​**Buyback entry:** `(buyback_1_entry)`\n"
+        f"🪙​ **Pair:** `{trade.pair}`\n"
+        f"〽️​ **Rate:** `{current_rate}`\n"
+        f"💰 **Stake amount:** `{buy_amount}`\n"
+        f"💵​ **Profit (stake):** `{profit_stake}`\n"
+        f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`"
       )
       log.info(
         f"Buyback entry (buyback_1_entry) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
@@ -34319,7 +34389,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Buyback exit (buyback_1_exit) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {buyback_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Buyback exit:** `(buyback_1_exit)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{buyback_1_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Buyback exit (buyback_1_exit) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {buyback_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -34419,7 +34497,12 @@ class NostalgiaForInfinityX6(IStrategy):
       if buy_amount > max_stake:
         return None
       self.dp.send_msg(
-        f"Buyback entry (buyback_2_entry) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
+        f"✅ ​**Buyback entry:** `(buyback_2_entry)`\n"
+        f"🪙​ **Pair:** `{trade.pair}`\n"
+        f"〽️​ **Rate:** `{current_rate}`\n"
+        f"💰 **Stake amount:** `{buy_amount}`\n"
+        f"💵​ **Profit (stake):** `{profit_stake}`\n"
+        f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`"
       )
       log.info(
         f"Buyback entry (buyback_2_entry) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
@@ -34450,7 +34533,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Buyback exit (buyback_2_exit) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {buyback_2_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Buyback exit:** `(buyback_2_exit)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{buyback_2_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Buyback exit (buyback_2_exit) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {buyback_2_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -34550,7 +34641,12 @@ class NostalgiaForInfinityX6(IStrategy):
       if buy_amount > max_stake:
         return None
       self.dp.send_msg(
-        f"Buyback entry (buyback_3_entry) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
+        f"✅ ​**Buyback entry:** `(buyback_3_entry)`\n"
+        f"🪙​ **Pair:** `{trade.pair}`\n"
+        f"〽️​ **Rate:** `{current_rate}`\n"
+        f"💰 **Stake amount:** `{buy_amount}`\n"
+        f"💵​ **Profit (stake):** `{profit_stake}`\n"
+        f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`"
       )
       log.info(
         f"Buyback entry (buyback_3_entry) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
@@ -34581,7 +34677,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Buyback exit (buyback_3_exit) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {buyback_3_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Buyback exit:** `(buyback_3_exit)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{buyback_3_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Buyback exit (buyback_3_exit) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {buyback_3_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -35701,7 +35805,15 @@ class NostalgiaForInfinityX6(IStrategy):
             grind_profit = (exit_rate - first_entry.safe_price) / first_entry.safe_price
             coin_amount = sell_amount / exit_rate
             self.dp.send_msg(
-              f"Grinding exit (gm0) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {coin_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+              f"☑️​ ​**Grinding exit:** `(gm0)`\n"
+              f"🪙​ **Pair:** `{trade.pair}`\n"
+              f"〽️​ **Rate:** `{exit_rate}`\n"
+              f"💰 **Stake amount:** `{sell_amount}`\n"
+              f"🪙 **Coin amount:** `{coin_amount}`\n"
+              f"💵​ **Profit (stake):** `{profit_stake}`\n"
+              f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+              f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+              f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
             )
             log.info(
               f"Grinding exit (gm0) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {coin_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -35788,7 +35900,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = (exit_rate - grind_1_derisk_1_current_open_rate) / grind_1_derisk_1_current_open_rate
           grind_profit_stake = grind_1_derisk_1_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (dl1) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_1_derisk_1_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(dl1)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_1_derisk_1_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (dl1) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_1_derisk_1_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -35809,7 +35928,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (dl1) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_1_derisk_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(dl1)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_1_derisk_1_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (dl1) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_1_derisk_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -35904,7 +36031,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = (exit_rate - grind_2_derisk_1_current_open_rate) / grind_2_derisk_1_current_open_rate
           grind_profit_stake = grind_2_derisk_1_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (dl2) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_2_derisk_1_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(dl2)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_2_derisk_1_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (dl2) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_2_derisk_1_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -35925,7 +36059,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (dl2) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_2_derisk_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(dl2)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_2_derisk_1_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (dl2) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_2_derisk_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -36010,7 +36152,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = (exit_rate - grind_1_current_open_rate) / grind_1_current_open_rate
           grind_profit_stake = grind_1_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (gd1) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_1_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(gd1)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_1_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (gd1) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_1_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -36042,7 +36191,14 @@ class NostalgiaForInfinityX6(IStrategy):
         grind_profit = (exit_rate - grind_1_current_open_rate) / grind_1_current_open_rate
         grind_profit_stake = grind_1_current_grind_stake_profit
       self.dp.send_msg(
-        f"Grinding entry (gd1) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_1_current_grind_stake_profit} {self.config['stake_currency']})"
+        f"✅ ​**Grinding entry:** `(gd1)`\n"
+        f"🪙​ **Pair:** `{trade.pair}`\n"
+        f"〽️​ **Rate:** `{current_rate}`\n"
+        f"💰 **Stake amount:** `{buy_amount}`\n"
+        f"💵​ **Profit (stake):** `{profit_stake}`\n"
+        f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+        f"💶​ **Grind profit (stake):** `{grind_1_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+        f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
       )
       log.info(
         f"Grinding entry (gd1) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_1_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -36063,7 +36219,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (gd1) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(gd1)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_1_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (gd1) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -36147,7 +36311,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = (exit_rate - grind_2_current_open_rate) / grind_2_current_open_rate
           grind_profit_stake = grind_2_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (gd2) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_2_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(gd2)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_2_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (gd2) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_2_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -36168,7 +36339,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (gd2) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_2_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(gd2)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_2_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (gd2) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_2_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -36252,7 +36431,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = (exit_rate - grind_3_current_open_rate) / grind_3_current_open_rate
           grind_profit_stake = grind_3_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (gd3) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_3_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(gd3)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_3_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (gd3) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_3_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -36273,7 +36459,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (gd3) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_3_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(gd3)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_3_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (gd3) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_3_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -36357,7 +36551,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = (exit_rate - grind_4_current_open_rate) / grind_4_current_open_rate
           grind_profit_stake = grind_4_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (gd4) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_4_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(gd4)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_4_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (gd4) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_4_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -36378,7 +36579,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (gd4) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_4_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(gd4)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_4_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (gd4) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_4_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -36462,7 +36671,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = (exit_rate - grind_5_current_open_rate) / grind_5_current_open_rate
           grind_profit_stake = grind_5_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (gd5) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_5_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(gd5)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_5_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (gd5) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_5_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -36483,7 +36699,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (gd5) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_5_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(gd5)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_5_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (gd5) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_5_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -36567,7 +36791,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = (exit_rate - grind_6_current_open_rate) / grind_6_current_open_rate
           grind_profit_stake = grind_6_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (gd6) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_6_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(gd6)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_6_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (gd6) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_6_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -36588,7 +36819,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (gd6) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_6_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(gd6)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_6_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (gd6) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_6_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -37465,7 +37704,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = (exit_rate - grind_1_current_open_rate) / grind_1_current_open_rate
           grind_profit_stake = grind_1_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (g1) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_1_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(g1)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_1_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (g1) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_1_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -37495,7 +37741,14 @@ class NostalgiaForInfinityX6(IStrategy):
         grind_profit = (exit_rate - grind_1_current_open_rate) / grind_1_current_open_rate
         grind_profit_stake = grind_1_current_grind_stake_profit
       self.dp.send_msg(
-        f"Grinding entry (g1) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_1_current_grind_stake_profit} {self.config['stake_currency']})"
+        f"✅ ​**Grinding entry:** `(g1)`\n"
+        f"🪙​ **Pair:** `{trade.pair}`\n"
+        f"〽️​ **Rate:** `{current_rate}`\n"
+        f"💰 **Stake amount:** `{buy_amount}`\n"
+        f"💵​ **Profit (stake):** `{profit_stake}`\n"
+        f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+        f"💶​ **Grind profit (stake):** `{grind_1_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+        f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
       )
       log.info(
         f"Grinding entry (g1) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_1_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -37513,7 +37766,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (g1) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(g1)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_1_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (g1) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -37589,7 +37850,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = (exit_rate - grind_2_current_open_rate) / grind_2_current_open_rate
           grind_profit_stake = grind_2_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (g2) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_2_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(g2)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_2_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (g2) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_2_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -37607,7 +37875,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (g2) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_2_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(g2)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_2_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (g2) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_2_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -37683,7 +37959,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = (exit_rate - grind_3_current_open_rate) / grind_3_current_open_rate
           grind_profit_stake = grind_3_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (g3) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_3_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(g3)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_3_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (g3) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_3_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -37701,7 +37984,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (g3) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_3_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(g3)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_3_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (g3) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_3_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -37777,7 +38068,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = (exit_rate - grind_4_current_open_rate) / grind_4_current_open_rate
           grind_profit_stake = grind_4_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (g4) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_4_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(g4)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_4_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (g4) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_4_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -37795,7 +38093,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (g4) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_4_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(g4)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_4_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (g4) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_4_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -37871,7 +38177,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = (exit_rate - grind_5_current_open_rate) / grind_5_current_open_rate
           grind_profit_stake = grind_5_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (g5) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_5_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(g5)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_5_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (g5) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_5_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -37889,7 +38202,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (g5) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_5_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(g5)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_5_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (g5) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_5_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -37965,7 +38286,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = (exit_rate - grind_6_current_open_rate) / grind_6_current_open_rate
           grind_profit_stake = grind_6_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (g6) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_6_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(g6)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_6_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (g6) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_6_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -37983,7 +38311,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (g6) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_6_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(g6)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_6_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (g6) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_6_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -56822,7 +57158,12 @@ class NostalgiaForInfinityX6(IStrategy):
       if buy_amount > max_stake:
         return None
       self.dp.send_msg(
-        f"Grinding entry (grind_1_entry) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
+        f"✅ ​**Grinding entry:** `(grind_1_entry)`\n"
+        f"🪙​ **Pair:** `{trade.pair}`\n"
+        f"〽️​ **Rate:** `{current_rate}`\n"
+        f"💰 **Stake amount:** `{buy_amount}`\n"
+        f"💵​ **Profit (stake):** `{profit_stake}`\n"
+        f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`"
       )
       log.info(
         f"Grinding entry (grind_1_entry) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
@@ -56844,7 +57185,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (grind_1_exit) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(grind_1_exit)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_1_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (grind_1_exit) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -56918,7 +57267,12 @@ class NostalgiaForInfinityX6(IStrategy):
       if buy_amount > max_stake:
         return None
       self.dp.send_msg(
-        f"Grinding entry (grind_2_entry) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
+        f"✅ ​**Grinding entry:** `(grind_2_entry)`\n"
+        f"🪙​ **Pair:** `{trade.pair}`\n"
+        f"〽️​ **Rate:** `{current_rate}`\n"
+        f"💰 **Stake amount:** `{buy_amount}`\n"
+        f"💵​ **Profit (stake):** `{profit_stake}`\n"
+        f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`"
       )
       log.info(
         f"Grinding entry (grind_2_entry) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
@@ -56940,7 +57294,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (grind_2_exit) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_2_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(grind_2_exit)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_2_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (grind_2_exit) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_2_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -57014,7 +57376,12 @@ class NostalgiaForInfinityX6(IStrategy):
       if buy_amount > max_stake:
         return None
       self.dp.send_msg(
-        f"Grinding entry (grind_3_entry) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
+        f"✅ ​**Grinding entry:** `(grind_3_entry)`\n"
+        f"🪙​ **Pair:** `{trade.pair}`\n"
+        f"〽️​ **Rate:** `{current_rate}`\n"
+        f"💰 **Stake amount:** `{buy_amount}`\n"
+        f"💵​ **Profit (stake):** `{profit_stake}`\n"
+        f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`"
       )
       log.info(
         f"Grinding entry (grind_3_entry) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
@@ -57036,7 +57403,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (grind_3_exit) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_3_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(grind_3_exit)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_3_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (grind_3_exit) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_3_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -57125,7 +57500,12 @@ class NostalgiaForInfinityX6(IStrategy):
       if buy_amount > max_stake:
         return None
       self.dp.send_msg(
-        f"Grinding entry (grind_4_entry) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
+        f"✅ ​**Grinding entry:** `(grind_4_entry)`\n"
+        f"🪙​ **Pair:** `{trade.pair}`\n"
+        f"〽️​ **Rate:** `{current_rate}`\n"
+        f"💰 **Stake amount:** `{buy_amount}`\n"
+        f"💵​ **Profit (stake):** `{profit_stake}`\n"
+        f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`"
       )
       log.info(
         f"Grinding entry (grind_4_entry) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
@@ -57147,7 +57527,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (grind_4_exit) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_4_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(grind_4_exit)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_4_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (grind_4_exit) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_4_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -57236,7 +57624,12 @@ class NostalgiaForInfinityX6(IStrategy):
       if buy_amount > max_stake:
         return None
       self.dp.send_msg(
-        f"Grinding entry (grind_5_entry) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
+        f"✅ ​**Grinding entry:** `(grind_5_entry)`\n"
+        f"🪙​ **Pair:** `{trade.pair}`\n"
+        f"〽️​ **Rate:** `{current_rate}`\n"
+        f"💰 **Stake amount:** `{buy_amount}`\n"
+        f"💵​ **Profit (stake):** `{profit_stake}`\n"
+        f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`"
       )
       log.info(
         f"Grinding entry (grind_5_entry) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
@@ -57258,7 +57651,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (grind_5_exit) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_5_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(grind_5_exit)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_5_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (grind_5_exit) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_5_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -57343,7 +57744,12 @@ class NostalgiaForInfinityX6(IStrategy):
       if buy_amount > max_stake:
         return None
       self.dp.send_msg(
-        f"Buyback entry (buyback_1_entry) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
+        f"✅ ​**Buyback entry:** `(buyback_1_entry)`\n"
+        f"🪙​ **Pair:** `{trade.pair}`\n"
+        f"〽️​ **Rate:** `{current_rate}`\n"
+        f"💰 **Stake amount:** `{buy_amount}`\n"
+        f"💵​ **Profit (stake):** `{profit_stake}`\n"
+        f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`"
       )
       log.info(
         f"Buyback entry (buyback_1_entry) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
@@ -57374,7 +57780,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Buyback exit (buyback_1_exit) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {buyback_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Buyback exit:** `(buyback_1_exit)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{buyback_1_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Buyback exit (buyback_1_exit) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {buyback_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -57474,7 +57888,12 @@ class NostalgiaForInfinityX6(IStrategy):
       if buy_amount > max_stake:
         return None
       self.dp.send_msg(
-        f"Buyback entry (buyback_2_entry) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
+        f"✅ ​**Buyback entry:** `(buyback_2_entry)`\n"
+        f"🪙​ **Pair:** `{trade.pair}`\n"
+        f"〽️​ **Rate:** `{current_rate}`\n"
+        f"💰 **Stake amount:** `{buy_amount}`\n"
+        f"💵​ **Profit (stake):** `{profit_stake}`\n"
+        f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`"
       )
       log.info(
         f"Buyback entry (buyback_2_entry) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
@@ -57505,7 +57924,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Buyback exit (buyback_2_exit) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {buyback_2_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Buyback exit:** `(buyback_2_exit)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{buyback_2_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Buyback exit (buyback_2_exit) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {buyback_2_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -57605,7 +58032,12 @@ class NostalgiaForInfinityX6(IStrategy):
       if buy_amount > max_stake:
         return None
       self.dp.send_msg(
-        f"Buyback entry (buyback_3_entry) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
+        f"✅ ​**Buyback entry:** `(buyback_3_entry)`\n"
+        f"🪙​ **Pair:** `{trade.pair}`\n"
+        f"〽️​ **Rate:** `{current_rate}`\n"
+        f"💰 **Stake amount:** `{buy_amount}`\n"
+        f"💵​ **Profit (stake):** `{profit_stake}`\n"
+        f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`"
       )
       log.info(
         f"Buyback entry (buyback_3_entry) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}%"
@@ -57636,7 +58068,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Buyback exit (buyback_3_exit) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {buyback_3_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Buyback exit:** `(buyback_3_exit)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{buyback_3_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Buyback exit (buyback_3_exit) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {buyback_3_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -58756,7 +59196,15 @@ class NostalgiaForInfinityX6(IStrategy):
             grind_profit = -(exit_rate - first_entry.safe_price) / first_entry.safe_price
             coin_amount = sell_amount / exit_rate
             self.dp.send_msg(
-              f"Grinding exit (gm0) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {coin_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+              f"☑️​ ​**Grinding exit:** `(gm0)`\n"
+              f"🪙​ **Pair:** `{trade.pair}`\n"
+              f"〽️​ **Rate:** `{exit_rate}`\n"
+              f"💰 **Stake amount:** `{sell_amount}`\n"
+              f"🪙 **Coin amount:** `{coin_amount}`\n"
+              f"💵​ **Profit (stake):** `{profit_stake}`\n"
+              f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+              f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+              f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
             )
             log.info(
               f"Grinding exit (gm0) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {coin_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -58843,7 +59291,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = -(exit_rate - grind_1_derisk_1_current_open_rate) / grind_1_derisk_1_current_open_rate
           grind_profit_stake = grind_1_derisk_1_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (dl1) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_1_derisk_1_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(dl1)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_1_derisk_1_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (dl1) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_1_derisk_1_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -58864,7 +59319,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (dl1) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_1_derisk_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(dl1)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_1_derisk_1_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (dl1) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_1_derisk_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -58959,7 +59422,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = -(exit_rate - grind_2_derisk_1_current_open_rate) / grind_2_derisk_1_current_open_rate
           grind_profit_stake = grind_2_derisk_1_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (dl2) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_2_derisk_1_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(dl2)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_2_derisk_1_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (dl2) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_2_derisk_1_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -58980,7 +59450,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (dl2) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_2_derisk_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(dl2)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_2_derisk_1_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (dl2) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_2_derisk_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -59065,7 +59543,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = -(exit_rate - grind_1_current_open_rate) / grind_1_current_open_rate
           grind_profit_stake = grind_1_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (gd1) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_1_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(gd1)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_1_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (gd1) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_1_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -59097,7 +59582,14 @@ class NostalgiaForInfinityX6(IStrategy):
         grind_profit = -(exit_rate - grind_1_current_open_rate) / grind_1_current_open_rate
         grind_profit_stake = grind_1_current_grind_stake_profit
       self.dp.send_msg(
-        f"Grinding entry (gd1) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_1_current_grind_stake_profit} {self.config['stake_currency']})"
+        f"✅ ​**Grinding entry:** `(gd1)`\n"
+        f"🪙​ **Pair:** `{trade.pair}`\n"
+        f"〽️​ **Rate:** `{current_rate}`\n"
+        f"💰 **Stake amount:** `{buy_amount}`\n"
+        f"💵​ **Profit (stake):** `{profit_stake}`\n"
+        f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+        f"💶​ **Grind profit (stake):** `{grind_1_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+        f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
       )
       log.info(
         f"Grinding entry (gd1) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_1_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -59118,7 +59610,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (gd1) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(gd1)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_1_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (gd1) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -59202,7 +59702,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = -(exit_rate - grind_2_current_open_rate) / grind_2_current_open_rate
           grind_profit_stake = grind_2_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (gd2) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_2_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(gd2)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_2_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (gd2) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_2_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -59223,7 +59730,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (gd2) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_2_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(gd2)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_2_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (gd2) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_2_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -59307,7 +59822,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = -(exit_rate - grind_3_current_open_rate) / grind_3_current_open_rate
           grind_profit_stake = grind_3_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (gd3) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_3_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(gd3)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_3_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (gd3) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_3_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -59328,7 +59850,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (gd3) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_3_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(gd3)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_3_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (gd3) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_3_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -59412,7 +59942,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = -(exit_rate - grind_4_current_open_rate) / grind_4_current_open_rate
           grind_profit_stake = grind_4_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (gd4) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_4_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(gd4)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_4_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (gd4) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_4_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -59433,7 +59970,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (gd4) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_4_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(gd4)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_4_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (gd4) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_4_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -59517,7 +60062,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = -(exit_rate - grind_5_current_open_rate) / grind_5_current_open_rate
           grind_profit_stake = grind_5_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (gd5) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_5_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(gd5)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_5_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (gd5) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_5_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -59538,7 +60090,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (gd5) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_5_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(gd5)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_5_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (gd5) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_5_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -59622,7 +60182,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = -(exit_rate - grind_6_current_open_rate) / grind_6_current_open_rate
           grind_profit_stake = grind_6_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (gd6) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_6_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(gd6)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_6_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (gd6) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_6_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -59643,7 +60210,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (gd6) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_6_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(gd6)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_6_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (gd6) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_6_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -60458,7 +61033,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = -(exit_rate - grind_1_current_open_rate) / grind_1_current_open_rate
           grind_profit_stake = grind_1_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (g1) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_1_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(g1)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_1_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (g1) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_1_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -60488,7 +61070,14 @@ class NostalgiaForInfinityX6(IStrategy):
         grind_profit = -(exit_rate - grind_1_current_open_rate) / grind_1_current_open_rate
         grind_profit_stake = grind_1_current_grind_stake_profit
       self.dp.send_msg(
-        f"Grinding entry (g1) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_1_current_grind_stake_profit} {self.config['stake_currency']})"
+        f"✅ ​**Grinding entry:** `(g1)`\n"
+        f"🪙​ **Pair:** `{trade.pair}`\n"
+        f"〽️​ **Rate:** `{current_rate}`\n"
+        f"💰 **Stake amount:** `{buy_amount}`\n"
+        f"💵​ **Profit (stake):** `{profit_stake}`\n"
+        f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+        f"💶​ **Grind profit (stake):** `{grind_1_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+        f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
       )
       log.info(
         f"Grinding entry (g1) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_1_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -60506,7 +61095,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (g1) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(g1)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_1_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (g1) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_1_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -60582,7 +61179,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = -(exit_rate - grind_2_current_open_rate) / grind_2_current_open_rate
           grind_profit_stake = grind_2_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (g2) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_2_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(g2)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_2_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (g2) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_2_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -60600,7 +61204,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (g2) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_2_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(g2)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_2_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (g2) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_2_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -60676,7 +61288,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = -(exit_rate - grind_3_current_open_rate) / grind_3_current_open_rate
           grind_profit_stake = grind_3_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (g3) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_3_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(g3)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_3_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (g3) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_3_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -60694,7 +61313,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (g3) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_3_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(g3)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_3_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (g3) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_3_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -60770,7 +61397,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = -(exit_rate - grind_4_current_open_rate) / grind_4_current_open_rate
           grind_profit_stake = grind_4_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (g4) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_4_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(g4)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_4_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (g4) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_4_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -60788,7 +61422,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (g4) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_4_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(g4)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_4_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (g4) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_4_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -60864,7 +61506,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = -(exit_rate - grind_5_current_open_rate) / grind_5_current_open_rate
           grind_profit_stake = grind_5_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (g5) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_5_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(g5)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_5_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (g5) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_5_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -60882,7 +61531,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (g5) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_5_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(g5)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_5_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (g5) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_5_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
@@ -60958,7 +61615,14 @@ class NostalgiaForInfinityX6(IStrategy):
           grind_profit = -(exit_rate - grind_6_current_open_rate) / grind_6_current_open_rate
           grind_profit_stake = grind_6_current_grind_stake_profit
         self.dp.send_msg(
-          f"Grinding entry (g6) [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_6_current_grind_stake_profit} {self.config['stake_currency']})"
+          f"✅ ​**Grinding entry:** `(g6)`\n"
+          f"🪙​ **Pair:** `{trade.pair}`\n"
+          f"〽️​ **Rate:** `{current_rate}`\n"
+          f"💰 **Stake amount:** `{buy_amount}`\n"
+          f"💵​ **Profit (stake):** `{profit_stake}`\n"
+          f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+          f"💶​ **Grind profit (stake):** `{grind_6_current_grind_stake_profit} {self.config['stake_currency']}`\n"
+          f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
         )
         log.info(
           f"Grinding entry (g6) [{current_time}] [{trade.pair}] | Rate: {current_rate} | Stake amount: {buy_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_6_current_grind_stake_profit} {self.config['stake_currency']})"
@@ -60976,7 +61640,15 @@ class NostalgiaForInfinityX6(IStrategy):
         ft_sell_amount = sell_amount * trade.leverage * (trade.stake_amount / trade.amount) / exit_rate
         if sell_amount > min_stake and ft_sell_amount > min_stake:
           self.dp.send_msg(
-            f"Grinding exit (g6) [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_6_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
+            f"☑️​ ​**Grinding exit:** `(g6)`\n"
+            f"🪙​ **Pair:** `{trade.pair}`\n"
+            f"〽️​ **Rate:** `{exit_rate}`\n"
+            f"💰 **Stake amount:** `{sell_amount}`\n"
+            f"🪙 **Coin amount:** `{grind_6_total_amount}`\n"
+            f"💵​ **Profit (stake):** `{profit_stake}`\n"
+            f"💸 **Profit (percent):** `{(profit_ratio * 100.0):.2f}%`\n"
+            f"💶​ **Grind profit (stake):** `{grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']}`\n"
+            f"💸 **Grind profit (percent):** `{(grind_profit * 100.0):.2f}%`"
           )
           log.info(
             f"Grinding exit (g6) [{current_time}] [{trade.pair}] | Rate: {exit_rate} | Stake amount: {sell_amount} | Coin amount: {grind_6_total_amount} | Profit (stake): {profit_stake} | Profit: {(profit_ratio * 100.0):.2f}% | Grind profit: {(grind_profit * 100.0):.2f}% ({grind_profit * sell_amount * trade.leverage} {self.config['stake_currency']})"
