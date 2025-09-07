@@ -70,7 +70,7 @@ class NostalgiaForInfinityX6(IStrategy):
   INTERFACE_VERSION = 3
 
   def version(self) -> str:
-    return "v16.7.42"
+    return "v16.7.43"
 
   stoploss = -0.99
 
@@ -2453,7 +2453,7 @@ class NostalgiaForInfinityX6(IStrategy):
     self,
     msg_type: str,
     tag: str,
-    trade,
+    pair: str,
     rate: float,
     stake_amount: float,
     profit_stake: float,
@@ -2487,8 +2487,8 @@ class NostalgiaForInfinityX6(IStrategy):
         - "rebuy"
     tag : str
         Identifier or label for the trade step (e.g., "g1", "dl1").
-    trade : object
-        Trade object with at least a `.pair` attribute (e.g., "BTC/USDT").
+    pair : str
+        Pair (e.g., "BTC/USDT").
     rate : float
         Entry or exit rate for the trade.
     stake_amount : float
@@ -2534,11 +2534,11 @@ class NostalgiaForInfinityX6(IStrategy):
     # Headers for different message types
     headers = {
       "grinding-entry": f"✅ ​**Grinding entry:** `({tag})`\n",
-      "grinding-exit": f"☑️ ​**Grinding exit:** `({tag})`\n",
+      "grinding-exit": f"❎​ ​**Grinding exit:** `({tag})`\n",
       "grinding-derisk": f"❌​​ ​**Grinding de-risk:** `({tag})`\n",
       "grinding-stop": f"❌ ​**Grinding stop exit:** `({tag})`\n",
       "buyback-entry": f"✅ ​**Buyback entry:** `({tag})`\n",
-      "buyback-exit": f"☑️​ ​**Buyback exit:** `({tag})`\n",
+      "buyback-exit": f"❎​​ ​**Buyback exit:** `({tag})`\n",
       "buyback-derisk": f"❌​​ ​**Buyback de-risk:** `({tag})`\n",
       "re-entry": f"✅ ​**Re-entry:** `({tag})`\n",
       "de-risk": f"❌​​ ​**De-risk:** `({tag})`\n",
@@ -2551,7 +2551,7 @@ class NostalgiaForInfinityX6(IStrategy):
 
     # Common fields
     msg += (
-      f"🪙 **Pair:** `{trade}`\n"
+      f"🪙 **Pair:** `{pair}`\n"
       f"〽️ **Rate:** `{rate}`\n"
       f"💰 **Stake amount:** `{stake_amount:.2f}{'' if stake_currency is None else ' ' + stake_currency}`\n"
     )
@@ -33918,7 +33918,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "de-risk",
             tag="Level 1",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -33967,7 +33967,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "de-risk",
             tag="Level 2",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -34016,7 +34016,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "de-risk",
             tag="Level 3",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -34050,7 +34050,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "de-risk",
             tag="Global",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -34089,7 +34089,7 @@ class NostalgiaForInfinityX6(IStrategy):
         self.notification_msg(
           "grinding-entry",
           tag="grind_1_entry",
-          trade=trade.pair,
+          pair=trade.pair,
           rate=current_rate,
           stake_amount=buy_amount,
           profit_stake=profit_stake,
@@ -34120,7 +34120,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="grind_1_exit",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -34170,7 +34170,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-derisk",
             tag="grind_1_derisk",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -34218,7 +34218,7 @@ class NostalgiaForInfinityX6(IStrategy):
         self.notification_msg(
           "grinding-entry",
           tag="grind_2_entry",
-          trade=trade.pair,
+          pair=trade.pair,
           rate=current_rate,
           stake_amount=buy_amount,
           profit_stake=profit_stake,
@@ -34249,7 +34249,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="grind_2_exit",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -34299,7 +34299,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-derisk",
             tag="grind_2_derisk",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -34347,7 +34347,7 @@ class NostalgiaForInfinityX6(IStrategy):
         self.notification_msg(
           "grinding-entry",
           tag="grind_3_entry",
-          trade=trade.pair,
+          pair=trade.pair,
           rate=current_rate,
           stake_amount=buy_amount,
           profit_stake=profit_stake,
@@ -34378,7 +34378,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="grind_3_exit",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -34428,7 +34428,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-derisk",
             tag="grind_3_derisk",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -34503,7 +34503,7 @@ class NostalgiaForInfinityX6(IStrategy):
         self.notification_msg(
           "grinding-entry",
           tag="grind_4_entry",
-          trade=trade.pair,
+          pair=trade.pair,
           rate=current_rate,
           stake_amount=buy_amount,
           profit_stake=profit_stake,
@@ -34534,7 +34534,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="grind_4_exit",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -34584,7 +34584,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-derisk",
             tag="grind_4_derisk",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -34647,7 +34647,7 @@ class NostalgiaForInfinityX6(IStrategy):
         self.notification_msg(
           "grinding-entry",
           tag="grind_5_entry",
-          trade=trade.pair,
+          pair=trade.pair,
           rate=current_rate,
           stake_amount=buy_amount,
           profit_stake=profit_stake,
@@ -34678,7 +34678,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="grind_5_exit",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -34728,7 +34728,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-derisk",
             tag="grind_5_derisk",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -34787,7 +34787,7 @@ class NostalgiaForInfinityX6(IStrategy):
         self.notification_msg(
           "buyback-entry",
           tag="buyback_1_entry",
-          trade=trade.pair,
+          pair=trade.pair,
           rate=current_rate,
           stake_amount=buy_amount,
           profit_stake=profit_stake,
@@ -34827,7 +34827,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "buyback-exit",
               tag="buyback_1_exit",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -34892,7 +34892,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "buyback-derisk",
             tag="buyback_1_derisk",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -34951,7 +34951,7 @@ class NostalgiaForInfinityX6(IStrategy):
         self.notification_msg(
           "buyback-entry",
           tag="buyback_2_entry",
-          trade=trade.pair,
+          pair=trade.pair,
           rate=current_rate,
           stake_amount=buy_amount,
           profit_stake=profit_stake,
@@ -34991,7 +34991,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "buyback-exit",
               tag="buyback_2_exit",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -35056,7 +35056,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "buyback-derisk",
             tag="buyback_2_derisk",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -35115,7 +35115,7 @@ class NostalgiaForInfinityX6(IStrategy):
         self.notification_msg(
           "buyback-entry",
           tag="buyback_3_entry",
-          trade=trade.pair,
+          pair=trade.pair,
           rate=current_rate,
           stake_amount=buy_amount,
           profit_stake=profit_stake,
@@ -35155,7 +35155,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "buyback-exit",
               tag="buyback_3_exit",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -35220,7 +35220,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "buyback-derisk",
             tag="buyback_3_derisk",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -36299,7 +36299,7 @@ class NostalgiaForInfinityX6(IStrategy):
               self.notification_msg(
                 "grinding-exit",
                 tag="gm0",
-                trade=trade.pair,
+                pair=trade.pair,
                 rate=exit_rate,
                 stake_amount=sell_amount,
                 profit_stake=profit_stake,
@@ -36340,7 +36340,7 @@ class NostalgiaForInfinityX6(IStrategy):
               self.notification_msg(
                 "grinding-derisk",
                 tag="gmd0",
-                trade=trade.pair,
+                pair=trade.pair,
                 rate=exit_rate,
                 stake_amount=sell_amount,
                 profit_stake=profit_stake,
@@ -36410,7 +36410,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="dl1",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -36442,7 +36442,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="dl1",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -36493,7 +36493,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="ddl1",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -36561,7 +36561,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="dl2",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -36593,7 +36593,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="dl2",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -36644,7 +36644,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="ddl2",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -36702,7 +36702,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="gd1",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -36745,7 +36745,7 @@ class NostalgiaForInfinityX6(IStrategy):
         self.notification_msg(
           "grinding-entry",
           tag="gd1",
-          trade=trade.pair,
+          pair=trade.pair,
           rate=current_rate,
           stake_amount=buy_amount,
           profit_stake=profit_stake,
@@ -36777,7 +36777,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="gd1",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -36827,7 +36827,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="dd1",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -36885,7 +36885,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="gd2",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -36917,7 +36917,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="gd2",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -36967,7 +36967,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="dd2",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -37025,7 +37025,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="gd3",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -37057,7 +37057,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="gd3",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -37107,7 +37107,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="dd3",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -37165,7 +37165,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="gd4",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -37197,7 +37197,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="gd4",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -37247,7 +37247,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="dd4",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -37305,7 +37305,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="gd5",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -37337,7 +37337,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="gd5",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -37387,7 +37387,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="dd5",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -37445,7 +37445,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="gd6",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -37477,7 +37477,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="gd6",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -37527,7 +37527,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="dd6",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -37594,7 +37594,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "re-entry",
             tag="d1",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -37640,7 +37640,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "de-risk",
             tag="d1",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -38357,7 +38357,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "rebuy",
             tag="r",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -38407,7 +38407,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="g1",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -38448,7 +38448,7 @@ class NostalgiaForInfinityX6(IStrategy):
         self.notification_msg(
           "grinding-entry",
           tag="g1",
-          trade=trade.pair,
+          pair=trade.pair,
           rate=current_rate,
           stake_amount=buy_amount,
           profit_stake=profit_stake,
@@ -38477,7 +38477,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="g1",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -38522,7 +38522,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="sg1",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -38577,7 +38577,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="g2",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -38606,7 +38606,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="g2",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -38651,7 +38651,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="sg2",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -38706,7 +38706,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="g3",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -38735,7 +38735,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="g3",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -38780,7 +38780,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="sg3",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -38835,7 +38835,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="g4",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -38864,7 +38864,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="g4",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -38909,7 +38909,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="sg4",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -38964,7 +38964,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="g5",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -38993,7 +38993,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="g5",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -39038,7 +39038,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="sg5",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -39093,7 +39093,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="g6",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -39122,7 +39122,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="g6",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -39167,7 +39167,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="sg6",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -39211,7 +39211,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "de-risk",
             tag="d",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -39259,7 +39259,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "de-risk",
             tag="d1",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -39416,7 +39416,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "rebuy",
             tag="r",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -57882,7 +57882,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "de-risk",
             tag="Level 1",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -57931,7 +57931,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "de-risk",
             tag="Level 2",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -57980,7 +57980,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "de-risk",
             tag="Level 3",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -58014,7 +58014,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "de-risk",
             tag="Global",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -58053,7 +58053,7 @@ class NostalgiaForInfinityX6(IStrategy):
         self.notification_msg(
           "grinding-entry",
           tag="grind_1_entry",
-          trade=trade.pair,
+          pair=trade.pair,
           rate=current_rate,
           stake_amount=buy_amount,
           profit_stake=profit_stake,
@@ -58084,7 +58084,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="grind_1_exit",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -58134,7 +58134,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-derisk",
             tag="grind_1_derisk",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -58182,7 +58182,7 @@ class NostalgiaForInfinityX6(IStrategy):
         self.notification_msg(
           "grinding-entry",
           tag="grind_2_entry",
-          trade=trade.pair,
+          pair=trade.pair,
           rate=current_rate,
           stake_amount=buy_amount,
           profit_stake=profit_stake,
@@ -58213,7 +58213,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="grind_2_exit",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -58263,7 +58263,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-derisk",
             tag="grind_2_derisk",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -58311,7 +58311,7 @@ class NostalgiaForInfinityX6(IStrategy):
         self.notification_msg(
           "grinding-entry",
           tag="grind_3_entry",
-          trade=trade.pair,
+          pair=trade.pair,
           rate=current_rate,
           stake_amount=buy_amount,
           profit_stake=profit_stake,
@@ -58342,7 +58342,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="grind_3_exit",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -58392,7 +58392,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-derisk",
             tag="grind_3_derisk",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -58455,7 +58455,7 @@ class NostalgiaForInfinityX6(IStrategy):
         self.notification_msg(
           "grinding-entry",
           tag="grind_4_entry",
-          trade=trade.pair,
+          pair=trade.pair,
           rate=current_rate,
           stake_amount=buy_amount,
           profit_stake=profit_stake,
@@ -58486,7 +58486,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="grind_4_exit",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -58536,7 +58536,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-derisk",
             tag="grind_4_derisk",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -58599,7 +58599,7 @@ class NostalgiaForInfinityX6(IStrategy):
         self.notification_msg(
           "grinding-entry",
           tag="grind_5_entry",
-          trade=trade.pair,
+          pair=trade.pair,
           rate=current_rate,
           stake_amount=buy_amount,
           profit_stake=profit_stake,
@@ -58630,7 +58630,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="grind_5_exit",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -58680,7 +58680,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-derisk",
             tag="grind_5_derisk",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -58739,7 +58739,7 @@ class NostalgiaForInfinityX6(IStrategy):
         self.notification_msg(
           "buyback-entry",
           tag="buyback_1_entry",
-          trade=trade.pair,
+          pair=trade.pair,
           rate=current_rate,
           stake_amount=buy_amount,
           profit_stake=profit_stake,
@@ -58779,7 +58779,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "buyback-exit",
               tag="buyback_1_exit",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -58844,7 +58844,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "buyback-derisk",
             tag="buyback_1_derisk",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -58901,7 +58901,7 @@ class NostalgiaForInfinityX6(IStrategy):
         self.notification_msg(
           "buyback-entry",
           tag="buyback_2_entry",
-          trade=trade.pair,
+          pair=trade.pair,
           rate=current_rate,
           stake_amount=buy_amount,
           profit_stake=profit_stake,
@@ -58941,7 +58941,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "buyback-exit",
               tag="buyback_2_exit",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -59006,7 +59006,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "buyback-derisk",
             tag="buyback_2_derisk",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -59063,7 +59063,7 @@ class NostalgiaForInfinityX6(IStrategy):
         self.notification_msg(
           "buyback-entry",
           tag="buyback_3_entry",
-          trade=trade.pair,
+          pair=trade.pair,
           rate=current_rate,
           stake_amount=buy_amount,
           profit_stake=profit_stake,
@@ -59103,7 +59103,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "buyback-exit",
               tag="buyback_3_exit",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -59168,7 +59168,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "buyback-derisk",
             tag="buyback_3_derisk",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -60245,7 +60245,7 @@ class NostalgiaForInfinityX6(IStrategy):
               self.notification_msg(
                 "grinding-exit",
                 tag="gm0",
-                trade=trade.pair,
+                pair=trade.pair,
                 rate=exit_rate,
                 stake_amount=sell_amount,
                 profit_stake=profit_stake,
@@ -60286,7 +60286,7 @@ class NostalgiaForInfinityX6(IStrategy):
               self.notification_msg(
                 "grinding-derisk",
                 tag="gmd0",
-                trade=trade.pair,
+                pair=trade.pair,
                 rate=exit_rate,
                 stake_amount=sell_amount,
                 profit_stake=profit_stake,
@@ -60356,7 +60356,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="dl1",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -60388,7 +60388,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="dl1",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -60439,7 +60439,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="ddl1",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -60507,7 +60507,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="dl2",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -60539,7 +60539,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="dl2",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -60590,7 +60590,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="ddl2",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -60648,7 +60648,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="gd1",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -60691,7 +60691,7 @@ class NostalgiaForInfinityX6(IStrategy):
         self.notification_msg(
           "grinding-entry",
           tag="gd1",
-          trade=trade.pair,
+          pair=trade.pair,
           rate=current_rate,
           stake_amount=buy_amount,
           profit_stake=profit_stake,
@@ -60723,7 +60723,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="gd1",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -60773,7 +60773,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="dd1",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -60831,7 +60831,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="gd2",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -60863,7 +60863,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="gd2",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -60913,7 +60913,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="dd2",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -60971,7 +60971,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="gd3",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -61003,7 +61003,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="gd3",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -61053,7 +61053,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="dd3",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -61111,7 +61111,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="gd4",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -61143,7 +61143,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="gd4",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -61193,7 +61193,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="dd4",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -61251,7 +61251,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="gd5",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -61283,7 +61283,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="gd5",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -61333,7 +61333,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="dd5",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -61391,7 +61391,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="gd6",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -61423,7 +61423,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="gd6",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -61473,7 +61473,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="dd6",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -61540,7 +61540,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "re-entry",
             tag="d1",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -61586,7 +61586,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "de-risk",
             tag="d1",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -62241,7 +62241,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "rebuy",
             tag="r",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -62291,7 +62291,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="g1",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -62332,7 +62332,7 @@ class NostalgiaForInfinityX6(IStrategy):
         self.notification_msg(
           "grinding-entry",
           tag="g1",
-          trade=trade.pair,
+          pair=trade.pair,
           rate=current_rate,
           stake_amount=buy_amount,
           profit_stake=profit_stake,
@@ -62361,7 +62361,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="g1",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -62406,7 +62406,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="sg1",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -62461,7 +62461,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="g2",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -62490,7 +62490,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="g2",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -62535,7 +62535,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="sg2",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -62590,7 +62590,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="g3",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -62619,7 +62619,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="g3",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -62664,7 +62664,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="sg3",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -62719,7 +62719,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="g4",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -62748,7 +62748,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="g4",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -62793,7 +62793,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="sg4",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -62848,7 +62848,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="g5",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -62877,7 +62877,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="g5",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -62922,7 +62922,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="sg5",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -62977,7 +62977,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-entry",
             tag="g6",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
@@ -63006,7 +63006,7 @@ class NostalgiaForInfinityX6(IStrategy):
             self.notification_msg(
               "grinding-exit",
               tag="g6",
-              trade=trade.pair,
+              pair=trade.pair,
               rate=exit_rate,
               stake_amount=sell_amount,
               profit_stake=profit_stake,
@@ -63051,7 +63051,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "grinding-stop",
             tag="sg6",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -63095,7 +63095,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "de-risk",
             tag="d",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -63143,7 +63143,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "de-risk",
             tag="d1",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=exit_rate,
             stake_amount=sell_amount,
             profit_stake=profit_stake,
@@ -63290,7 +63290,7 @@ class NostalgiaForInfinityX6(IStrategy):
           self.notification_msg(
             "rebuy",
             tag="r",
-            trade=trade.pair,
+            pair=trade.pair,
             rate=current_rate,
             stake_amount=buy_amount,
             profit_stake=profit_stake,
