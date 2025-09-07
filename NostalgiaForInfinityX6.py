@@ -2513,6 +2513,7 @@ class NostalgiaForInfinityX6(IStrategy):
         Example:
         ```
         ✅ **Grinding entry:** `(dl1)`
+        🏦 **Exchange:** `Binance`
         🪙 **Pair:** `BTC/USDT`
         〽️ **Rate:** `20000.0`
         💰 **Stake amount:** `100.00 USDT`
@@ -2548,6 +2549,12 @@ class NostalgiaForInfinityX6(IStrategy):
 
     # Start with the header
     msg = headers.get(msg_type, None)
+
+    # Add exchange information
+    exchange_name = getattr(self, "config", {}).get("exchange", {}).get("name", "Unknown").capitalize()
+    msg += (
+      f"🏦 **Exchange:** `{exchange_name}`\n"
+    )
 
     # Common fields
     msg += (
