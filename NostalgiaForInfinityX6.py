@@ -70,7 +70,7 @@ class NostalgiaForInfinityX6(IStrategy):
   INTERFACE_VERSION = 3
 
   def version(self) -> str:
-    return "v16.7.47"
+    return "v16.7.49"
 
   stoploss = -0.99
 
@@ -381,12 +381,12 @@ class NostalgiaForInfinityX6(IStrategy):
   grinding_v2_derisk_level_3_enable = True
   grinding_v2_derisk_level_3_spot = -0.15
   grinding_v2_derisk_level_3_futures = -0.45
-  grinding_v2_derisk_level_1_stake_spot = 0.50
-  grinding_v2_derisk_level_1_stake_futures = 0.50
+  grinding_v2_derisk_level_1_stake_spot = 0.20
+  grinding_v2_derisk_level_1_stake_futures = 0.20
   grinding_v2_derisk_level_2_stake_spot = 0.30
   grinding_v2_derisk_level_2_stake_futures = 0.30
-  grinding_v2_derisk_level_3_stake_spot = 0.20
-  grinding_v2_derisk_level_3_stake_futures = 0.20
+  grinding_v2_derisk_level_3_stake_spot = 0.50
+  grinding_v2_derisk_level_3_stake_futures = 0.50
   grinding_v2_derisk_global_enable = False
   grinding_v2_derisk_global_spot = -0.10
   grinding_v2_derisk_global_futures = -0.30
@@ -8962,6 +8962,8 @@ class NostalgiaForInfinityX6(IStrategy):
               | (df["AROONU_14_4h"] < 70.0)
               | (df["ROC_9_4h"] < 20.0)
             )
+            # 1h & 4h down move, 15m still high
+            & ((df["RSI_3_1h"] > 10.0) | (df["RSI_3_4h"] > 10.0) | (df["AROONU_14_15m"] < 50.0))
           )
 
           # Logic
