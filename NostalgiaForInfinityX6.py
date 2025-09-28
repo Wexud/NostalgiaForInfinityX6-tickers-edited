@@ -70,7 +70,7 @@ class NostalgiaForInfinityX6(IStrategy):
   INTERFACE_VERSION = 3
 
   def version(self) -> str:
-    return "v16.8.37"
+    return "v16.8.38"
 
   stoploss = -0.99
 
@@ -10604,6 +10604,10 @@ class NostalgiaForInfinityX6(IStrategy):
           # 15m & 1h down move, 4h still not low enough
           long_entry_logic.append(
             (df["RSI_3_15m"] > 3.0) | (df["RSI_3_1h"] > 20.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 30.0)
+          )
+          # 15m & 4h down move, 1h & 4h still high
+          long_entry_logic.append(
+            (df["RSI_3_15m"] > 3.0) | (df["RSI_3_4h"] > 40.0) | (df["RSI_14_1h"] < 40.0) | (df["RSI_14_4h"] < 40.0)
           )
           # 15m & 1h down move, 15m still not low enough
           long_entry_logic.append(
@@ -35122,8 +35126,8 @@ class NostalgiaForInfinityX6(IStrategy):
         self.is_futures_mode
         and trade.liquidation_price is not None
         and (
-          (trade.is_short and current_rate > trade.liquidation_price * 0.95)
-          or (not trade.is_short and current_rate < trade.liquidation_price * 1.05)
+          (trade.is_short and current_rate > trade.liquidation_price * 0.90)
+          or (not trade.is_short and current_rate < trade.liquidation_price * 1.10)
         )
         and (last_candle["RSI_3"] > 10.0)
         and (last_candle["RSI_3_15m"] > 20.0)
@@ -59200,8 +59204,8 @@ class NostalgiaForInfinityX6(IStrategy):
         self.is_futures_mode
         and trade.liquidation_price is not None
         and (
-          (trade.is_short and current_rate > trade.liquidation_price * 0.95)
-          or (not trade.is_short and current_rate < trade.liquidation_price * 1.05)
+          (trade.is_short and current_rate > trade.liquidation_price * 0.90)
+          or (not trade.is_short and current_rate < trade.liquidation_price * 1.10)
         )
         and (last_candle["RSI_3"] < 90.0)
         and (last_candle["RSI_3_15m"] < 80.0)
