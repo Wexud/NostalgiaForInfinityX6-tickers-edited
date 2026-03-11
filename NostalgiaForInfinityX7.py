@@ -70,7 +70,7 @@ class NostalgiaForInfinityX7(IStrategy):
   INTERFACE_VERSION = 3
 
   def version(self) -> str:
-    return "v17.3.974"
+    return "v17.3.980"
 
   stoploss = -0.99
 
@@ -12092,6 +12092,8 @@ class NostalgiaForInfinityX7(IStrategy):
             & ((df["RSI_3_15m"] > 10.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 90.0) | (df["ROC_9_1h"] < 20.0))
             # 15m down move, 1h & 1d overbought
             & ((df["RSI_3_15m"] > 10.0) | (df["ROC_9_1h"] < 10.0) | (df["ROC_9_1d"] < 80.0))
+            # 15m & 1h down move, 1h high
+            & ((df["RSI_3_15m"] > 15.0) | (df["RSI_3_1h"] > 20.0) | (df["AROONU_14_1h"] < 80.0))
             # 15m down move, 15m still high, 4h overbought
             & ((df["RSI_3_15m"] > 15.0) | (df["RSI_14_15m"] < 50.0) | (df["ROC_9_4h"] < 50.0))
             # 15m down move, 15m & 1h high
@@ -12152,8 +12154,14 @@ class NostalgiaForInfinityX7(IStrategy):
             & ((df["RSI_3_1h"] > 15.0) | (df["AROONU_14_1h"] < 70.0) | (df["ROC_9_1d"] > -20.0))
             # 1h down move, 1h high, 1d overbought
             & ((df["RSI_3_1h"] > 15.0) | (df["AROONU_14_1h"] < 70.0) | (df["ROC_9_1d"] < 50.0))
+            # 1h down move, 1h high
+            & ((df["RSI_3_1h"] > 15.0) | (df["AROONU_14_1h"] < 80.0))
+            # 1h down move, 1h & 4h downtrend
+            & ((df["RSI_3_1h"] > 15.0) | (df["ROC_9_1h"] > -30.0) | (df["ROC_9_4h"] > -30.0))
             # 1h & 4h down move, 4h overbought
             & ((df["RSI_3_1h"] > 20.0) | (df["RSI_3_4h"] > 50.0) | (df["ROC_9_4h"] < 80.0))
+            # 1h down move, 1h still high, 4h downtrend
+            & ((df["RSI_3_1h"] > 20.0) | (df["AROONU_14_1h"] < 40.0) | (df["ROC_9_4h"] > -30.0))
             # 1h down move, 4h high, 1d overbought
             & ((df["RSI_3_1h"] > 20.0) | (df["AROONU_14_4h"] < 70.0) | (df["ROC_9_1d"] < 200.0))
             # 1h down move, 4h high, 1d overbought
@@ -12198,6 +12206,8 @@ class NostalgiaForInfinityX7(IStrategy):
             & ((df["RSI_3_4h"] > 10.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 60.0) | (df["ROC_9_1d"] > -40.0))
             # 4h down move, 4h still not low enough, 1d downtrend
             & ((df["RSI_3_4h"] > 10.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 30.0) | (df["ROC_9_1d"] > -20.0))
+            # 4h down move, 1h & 4h downtrend
+            & ((df["RSI_3_4h"] > 10.0) | (df["ROC_9_1h"] > -30.0) | (df["ROC_9_4h"] > -30.0))
             # 4h down move, 1d high & overbought
             & ((df["RSI_3_4h"] > 20.0) | (df["AROONU_14_1d"] < 80.0) | (df["ROC_9_1d"] < 80.0))
             # 4h down move, 4h still high, 1d downtrend
@@ -12226,6 +12236,8 @@ class NostalgiaForInfinityX7(IStrategy):
             & ((df["CMF_20_15m"] > -0.3) | (df["CMF_20_1h"] > -0.3) | (df["CMF_20_4h"] > -0.3))
             # 15m high, 1d overbought
             & ((df["AROONU_14_15m"] < 70.0) | (df["ROC_9_1d"] < 80.0))
+            # 1h still high, 1h & 4h downtrend
+            & ((df["AROONU_14_1h"] < 40.0) | (df["ROC_9_1h"] > -20.0) | (df["ROC_9_4h"] > -30.0))
             # 1h high, 1h & 4h overbought
             & ((df["AROONU_14_1h"] < 85.0) | (df["ROC_9_1h"] < 10.0) | (df["ROC_9_1d"] < 30.0))
             # 1h high, 1h overbought, 1d downtrend
@@ -12719,6 +12731,8 @@ class NostalgiaForInfinityX7(IStrategy):
             & ((df["RSI_3_1h"] > 25.0) | (df["RSI_3_4h"] > 30.0) | (df["ROC_9_1d"] > -30.0))
             # 1h down move, 1h & 4h high
             & ((df["RSI_3_1h"] > 25.0) | (df["AROONU_14_1h"] < 60.0) | (df["AROONU_14_4h"] < 90.0))
+            # 1h down move, 1h high
+            & ((df["RSI_3_1h"] > 25.0) | (df["AROONU_14_1h"] < 85.0))
             # 1h down move, 4h high, 4h downtrend
             & ((df["RSI_3_1h"] > 25.0) | (df["AROONU_14_4h"] < 70.0) | (df["CMF_20_4h"] > -0.50))
             # 1h down move, 4h & 1d overbought
@@ -16288,6 +16302,8 @@ class NostalgiaForInfinityX7(IStrategy):
             & ((df["RSI_3_15m"] > 15.0) | (df["RSI_3_4h"] > 40.0) | (df["AROONU_14_4h"] < 70.0))
             # 15m down move. 15m still high, 1h high
             & ((df["RSI_3_15m"] > 15.0) | (df["AROONU_14_15m"] < 50.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 80.0))
+            # 15m down move, 15m & 4h high
+            & ((df["RSI_3_15m"] > 15.0) | (df["AROONU_14_15m"] < 70.0) | (df["AROONU_14_4h"] < 100.0))
             # 15m down move, 1h high, 1d overbought
             & ((df["RSI_3_15m"] > 15.0) | (df["AROONU_14_1h"] < 80.0) | (df["ROC_9_1d"] < 40.0))
             # 15m down move, 4h high & overbought
@@ -16434,6 +16450,10 @@ class NostalgiaForInfinityX7(IStrategy):
             & ((df["RSI_3_1h"] > 40.0) | (df["AROONU_14_1h"] < 80.0) | (df["ROC_9_1d"] > -30.0))
             # 1h down move, 4h high, 1d overbought
             & ((df["RSI_3_1h"] > 40.0) | (df["AROONU_14_4h"] < 80.0) | (df["ROC_9_1d"] < 40.0))
+            # 1h down move, 4h high & overbought
+            & ((df["RSI_3_1h"] > 40.0) | (df["AROONU_14_4h"] < 90.0) | (df["ROC_9_4h"] < 20.0))
+            # 1h down move, 4h high & overbought
+            & ((df["RSI_3_1h"] > 40.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 80.0) | (df["ROC_9_4h"] < 20.0))
             # 1h down move, 1d high, 4h overbought
             & ((df["RSI_3_1h"] > 45.0) | (df["AROONU_14_1d"] < 100.0) | (df["ROC_9_4h"] < 40.0))
             # 1h down move, 1h high, 1d downtrend
@@ -16462,6 +16482,8 @@ class NostalgiaForInfinityX7(IStrategy):
             & ((df["RSI_3_4h"] > 10.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 30.0) | (df["ROC_9_1d"] > -20.0))
             # 4h down move, 4h & 1d  downtrend
             & ((df["RSI_3_4h"] > 10.0) | (df["ROC_9_4h"] > -20.0) | (df["ROC_9_1d"] > -30.0))
+            # 4h down move, 1h still high
+            & ((df["RSI_3_4h"] > 15.0) | (df["AROONU_14_1h"] < 50.0))
             # 4h down move, 1h still high, 1d downtrend
             & ((df["RSI_3_4h"] > 15.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 50.0) | (df["ROC_9_1d"] > -30.0))
             # 4h down move, 4h still high, 1d downtrend
@@ -16687,12 +16709,16 @@ class NostalgiaForInfinityX7(IStrategy):
             & ((df["RSI_3_1h"] > 15.0) | (df["AROONU_14_4h"] < 80.0) | (df["ROC_9_4h"] < 100.0))
             # 1h down move, 1d high & overbought
             & ((df["RSI_3_1h"] > 15.0) | (df["AROONU_14_1d"] < 80.0) | (df["ROC_9_1d"] < 100.0))
+            # 1h down move, 1h & 4h downtrend
+            & ((df["RSI_3_1h"] > 15.0) | (df["ROC_9_1h"] > -30.0) | (df["ROC_9_4h"] > -30.0))
             # 1h down move, 1h & 4h overbought
             & ((df["RSI_3_1h"] > 15.0) | (df["ROC_9_4h"] < 10.0) | (df["ROC_9_1d"] < 50.0))
             # 1h down move, 1h & 4h overbought
             & ((df["RSI_3_1h"] > 15.0) | (df["ROC_9_4h"] < 20.0) | (df["ROC_9_1d"] < 20.0))
             # 1h & 4h down move, 4h high
             & ((df["RSI_3_1h"] > 20.0) | (df["RSI_3_4h"] > 50.0) | (df["AROONU_14_4h"] < 90.0))
+            # 1h down move, 1h still high, 4h downtrend
+            & ((df["RSI_3_1h"] > 20.0) | (df["AROONU_14_1h"] < 40.0) | (df["ROC_9_4h"] > -30.0))
             # 1h down move, 4h high, 1d downtrend
             & ((df["RSI_3_1h"] > 20.0) | (df["STOCHRSIk_14_14_3_3_4h"] < 80.0) | (df["ROC_9_1d"] > -40.0))
             # 1h & 4h down ove, 4h high
@@ -16727,6 +16753,8 @@ class NostalgiaForInfinityX7(IStrategy):
             & ((df["RSI_3_4h"] > 10.0) | (df["RSI_3_1d"] > 20.0) | (df["AROONU_14_1d"] < 80.0))
             # 4h down move, 1d high, 4h downtrend
             & ((df["RSI_3_4h"] > 10.0) | (df["AROONU_14_1d"] < 90.0) | (df["ROC_9_4h"] > -20.0))
+            # 4h down move, 1h & 4h downtrend
+            & ((df["RSI_3_4h"] > 10.0) | (df["ROC_9_1h"] > -30.0) | (df["ROC_9_4h"] > -30.0))
             # 4h down move, 4h still not low enough, 1d overbought
             & ((df["RSI_3_4h"] > 15.0) | (df["AROONU_14_4h"] < 30.0) | (df["ROC_9_1d"] < 50.0))
             # 4h down move, 4h high
@@ -16753,6 +16781,8 @@ class NostalgiaForInfinityX7(IStrategy):
             & ((df["CMF_20_4h"] > -0.50) | (df["AROONU_14_4h"] < 70.0))
             # 1h & 1d high, 4h downtrend
             & ((df["AROONU_14_1h"] < 40.0) | (df["AROONU_14_1d"] < 70.0) | (df["ROC_9_4h"] > -20.0))
+            # 1h still high, 1h & 4h downtrend
+            & ((df["AROONU_14_1h"] < 40.0) | (df["ROC_9_1h"] > -20.0) | (df["ROC_9_4h"] > -30.0))
             # 1h & 4h high, 1d overbought
             & ((df["AROONU_14_1h"] < 70.0) | (df["AROONU_14_4h"] < 100.0) | (df["ROC_9_1d"] < 20.0))
             # 1h high, 4h & 1d downtrend
@@ -18308,6 +18338,8 @@ class NostalgiaForInfinityX7(IStrategy):
             & ((df["RSI_3_4h"] > 15.0) | (df["RSI_3_1d"] > 20.0) | (df["AROONU_14_1d"] < 60.0))
             # 4h & 1d down move, 1d high
             & ((df["RSI_3_4h"] > 15.0) | (df["RSI_3_1d"] > 40.0) | (df["AROONU_14_1d"] < 80.0))
+            # 4h down move, 1h high
+            & ((df["RSI_3_4h"] > 15.0) | (df["AROONU_14_1h"] < 50.0))
             # 4h down move, 1h still high, 1d downtrend
             & ((df["RSI_3_4h"] > 15.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 50.0) | (df["ROC_9_1d"] > -30.0))
             # 4h down move, 1d high & overbought
@@ -18693,6 +18725,8 @@ class NostalgiaForInfinityX7(IStrategy):
           long_entry_logic.append((df["RSI_3_1h"] > 15.0) | (df["RSI_3_1d"] > 10.0) | (df["AROONU_14_1h"] < 40.0))
           # 4h & 1d down move, 4h high
           long_entry_logic.append((df["RSI_3_4h"] > 15.0) | (df["RSI_3_1d"] > 25.0) | (df["AROONU_14_4h"] < 70.0))
+          # 4h down move, 1h still high
+          long_entry_logic.append((df["RSI_3_4h"] > 15.0) | (df["AROONU_14_1h"] < 50.0))
           # 1h down move, 1h still not low enough, 4h high
           long_entry_logic.append(
             (df["RSI_3_1h"] > 20.0) | (df["STOCHRSIk_14_14_3_3_1h"] < 20.0) | (df["AROONU_14_4h"] < 80.0)
